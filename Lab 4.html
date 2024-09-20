@@ -1,0 +1,72 @@
+<html>
+    <head></head>
+        <title> INST 377 - Lab 4 </title>
+        <link rel = "stylesheet" href ="Lab 4 Style.css">
+    </head>
+
+    <body>
+        <div class = main-container>
+            <h1 id = "header"> INST 377 - Lab 4 </h1>
+
+            <div class = content-area-left>
+                <div class = "nameSection">
+                    <form id = "nameForm">
+                        <label> Name: </label>
+                        <input type = "text" placeholder = "Name" id = "Name" required>
+                        <button onclick = "sayHi()"> Alert Me! </button>
+                        <script>
+                            function sayHi() {
+                                var nameInput = document.getElementById("Name");
+                                var name = nameInput.value;
+                                if(name) {
+                                    alert("Hi " + name)
+                                }
+                            }
+                        </script>
+                    </form>
+                </div>
+
+                <div class = "testSection">
+                    <form name = "testForm">
+                        <label> Text Tester: </label>
+                        <input type = "text" id = "testText" required>
+                        <button onclick = "validateText()"> Validate Text</button> 
+                        <script>
+                            function validateText() {
+                                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                                if (validationRegex.test(document.testForm.testText.value)) {
+                                    alert("How about.... nah")
+                                }
+                            }
+                        </script>
+                    </form>
+                </div>
+            </div>
+
+            <div class = content-area-right>
+                <div class = colorSection>
+                    <button onclick = "changeColor()"> Change Color </button>
+                    <script>
+                        function changeColor() {
+                            if(document.body.style.background == "green") {
+                                const t = document.body.style.background = "lightblue"
+                            } else {
+                                const t = document.body.style.background = "green"
+                            }
+                        }
+                    </script>
+                </div>
+
+                <div class = "addtextSection">
+                    <button onclick = "addText()"> Add Text </button>
+                    <script>
+                        function addText() {
+                            document.getElementById("header").textContent += "- Adding Text"
+                        }
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
